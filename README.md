@@ -108,7 +108,7 @@ cd graph-bot
 pip install -r requirements.txt
 ```
 3. **Настройте окружение**:
-- Создайте файл в папке config .env в корне проекта:
+- Создайте файл .env в папке config проекта:
 ```bash
 TELEGRAM_API_KEY=your_telegram_bot_token
 WOLFRAM_APP_ID=your_wolfram_app_id
