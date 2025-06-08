@@ -16,7 +16,7 @@ class EmptyFunctionCheckMiddleware(BaseMiddleware):
         if await state.get_state() == Form.waiting_function_input:
             if not message.text or not message.text.strip():
                 await message.answer(
-                    "❌ Вы ввели пустую строку. Пожалуйста, введи функцию.\n"
+                    "❌ Ты ввел пустую строку. Пожалуйста, введи функцию.\n"
                     "Примеры:\n"
                     "• y = x^2 + 3x - 5\n"
                     "• f(x) = sin(x) * cos(x)\n"
