@@ -89,6 +89,7 @@ graph-bot/
 
 ## Предварительные требования
 - Python 3.10+ (проверить версию: python --version)
+- pip (менеджер пакетов Python)
 - Telegram-бот (получить токен у [@BotFather](https://telegram.me/BotFather))
 - WolframAlpha API ключ (зарегистрироваться на [developer.wolframalpha.com](developer.wolframalpha.com))
 
