@@ -7,22 +7,27 @@ from utils.logger import get_logger
 from routers import commands
 from routers.handlers import about, grafmaking, history, clean
 
-logger = get_logger
+logger = get_logger(__name__)
 
 async def main():
-    dp = Dispatcher()
-    bot = Bot(token = bot_config.telegram_api_key)
+    logger.info("Starting bot initialization...")
 
-    dp.include_router(commands.router)
-    dp.include_router(about.router)
-    dp.include_router(grafmaking.router)
-    dp.include_router(history.router)
-    dp.include_router(clean.router)
+    try:
+        dp = Dispatcher()
+        bot = Bot(token=bot_config.telegram_api_key)
 
-    print("Bot is running...")
-    await dp.start_polling(bot)
+        dp.include_router(commands.router)
+        dp.include_router(about.router)
+        dp.include_router(grafmaking.router)
+        dp.include_router(history.router)
+        dp.include_router(clean.router)
+
+        logger.info("Bot is running...")
+        await dp.start_polling(bot)
+    except Exception as e:
+        logger.error(f"Bot crashed with error: {e}", exc_info=True)
+        raise
 
 
 if __name__ == "__main__":
-    logging.info("Starting bot...")
     asyncio.run(main())
