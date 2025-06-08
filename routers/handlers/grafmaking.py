@@ -73,7 +73,6 @@ async def process_graph_type(message: types.Message, state: FSMContext):
 async def send_wolfram_plot(message: types.Message, function: str):
     status_msg = await message.answer("Строим график...")
 
-    # Форматируем запрос специально для графика
     wolfram_query = f"plot {function}" if not function.lower().startswith(('plot', 'graph')) else function
 
     try:
@@ -88,7 +87,6 @@ async def send_wolfram_plot(message: types.Message, function: str):
                 caption=f"График функции: {function}"
             )
         else:
-            # Если не получили график, пробуем альтернативный формат
             alt_query = f"graph of {function}"
             image_data = await get_wolfram_plot(alt_query)
 
@@ -122,7 +120,6 @@ async def process_function_input(message: types.Message, state: FSMContext):
     user_input = message.text.strip()
     await send_wolfram_plot(message, user_input)
 
-    # После построения графика остаемся в том же состоянии
     await message.answer(
         "График построен. Введи новую функцию или нажмите 'Назад':",
         reply_markup=inlines.back_keyboard()
