@@ -76,7 +76,7 @@ graph-bot/
 │
 ├── storage/
 |    └── __init__.py                        # Инициализация хранилища
-│    └── graphs_data.json.py                # Хранилище метаданных
+│    └── graphs_data.json                   # Хранилище метаданных
 │          
 ├── utils/
 |    └── __init__.py                        # Инициализация утилит
