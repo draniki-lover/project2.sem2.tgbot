@@ -103,7 +103,7 @@ graph-bot/
 git clone https://github.com/your-username/graph-bot.git
 cd graph-bot
 ```
-2. **Установите зависимости**:
+2. **Установите нужные пакеты**:
 ```bash
 pip install -r requirements.txt
 ```
